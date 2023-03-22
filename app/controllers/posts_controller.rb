@@ -8,9 +8,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(params[:post].permit(:title, :content))
-    return unless post.save
-
-    redirect_to posts_path
+    @post = Post.new(params[:post].permit(:title, :content))
+    if @post.save
+      redirect_to posts_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 end
