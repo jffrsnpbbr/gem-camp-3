@@ -1,5 +1,5 @@
-<%= form_with model: posts do |form| %>
-  <% if posts.errors.any? %>
+<%= form_with model: post do |form| %>
+  <% if post.errors.any? %>
     <ul>
       <% post.errors.each do |error| %>
         <li><%= error.full_message %></li>
@@ -15,6 +15,9 @@
   <div>
     <%= form.label :content %>
     <%= form.text_field :content %>
+  </div>
+  <div>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
   </div>
   <%= form.submit %>
 <% end %>
