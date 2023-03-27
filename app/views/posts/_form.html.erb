@@ -1,7 +1,7 @@
-<%= form_with model: post do |form| %>
-  <% if post.errors.any? %>
+<%= form_with model: posts do |form| %>
+  <% if posts.errors.any? %>
     <ul>
-      <% post.errors.each do |error| %>
+      <% posts.errors.each do |error| %>
         <li><%= error.full_message %></li>
       <% end %>
     </ul>
