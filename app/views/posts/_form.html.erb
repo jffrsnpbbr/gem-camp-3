@@ -1,16 +1,16 @@
-<%= form_with model: posts do |form| %>
-  <% if posts.errors.any? %>
+<%= form_with model: post do |form| %>
+  <% if post.errors.any? %>
     <ul>
-      <% posts.errors.each do |error| %>
+      <% post.errors.each do |error| %>
         <li><%= error.full_message %></li>
       <% end %>
     </ul>
   <% end %>
 
 
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= form.label :title%>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
   <div>
     <%= form.label :content %>

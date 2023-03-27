@@ -5,7 +5,7 @@
   <li>
     <%= comment.content %>(<%= comment.created_at %>)
     <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
-    <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete %>
+    <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete, class: 'btn btn-outline-danger' %>
   </li>
 <% end %>
 </ul>
