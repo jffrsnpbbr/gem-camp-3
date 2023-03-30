@@ -1,13 +1,13 @@
-<h1>Post List</h1>
+<h1><%= t('post_list') %></h1>
 <table class="table">
   <thead>
     <tr>
-      <td>Title</td>
-      <td>Content</td>
-      <td>Category</td>
-      <td>Comments</td>
-      <td>User</td>
-      <td>Action</td>
+      <td><%= Post.human_attribute_name(:title) %></td>
+      <td><%= Post.human_attribute_name(:content) %></td>
+      <td><%= Post.human_attribute_name(:categories) %></td>
+      <td><%= Post.human_attribute_name(:comments) %></td>
+      <td><%= t("users") %></td>
+      <td><%= t("actions") %></td>
     </tr>
   </thead>
   <tbody>
