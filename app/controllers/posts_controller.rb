@@ -7,9 +7,33 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:categories, :user).page params[:pages]
-    # respond_to do |format|
-    #   format.html { render index }
-    # end
+    respond_to do |format|
+      format.html
+      format.csv {
+        csv_string = CSV.generate do |csv|
+          csv << [
+            User.human_attribute_name(:email),
+            Post.human_attribute_name(:id),
+            Post.human_attribute_name(:title),
+            Post.human_attribute_name(:content),
+            Post.human_attribute_name(:categories),
+            Post.human_attribute_name(:created_at)
+          ]
+
+          @posts.each do |p|
+            csv << [
+              p.user&.email,
+              p.id,
+              p.title,
+              p.content,
+              p.categories.pluck(:name).join(','),
+              p.created_at
+            ]
+          end
+        end
+        render plain: csv_string
+      }
+    end
   end
 
   def new

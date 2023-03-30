@@ -31,5 +31,6 @@
 </table>
 
 <%= paginate @posts %>
+<%= link_to 'Export', posts_path(format: :csv) %>
 <%= link_to 'New', new_post_path %>
 <%= link_to 'Index', posts_path %>
