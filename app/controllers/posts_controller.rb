@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
+  require 'csv'
+
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :validate_post_owner, only: %i[edit update destroy]
 
   def index
-    @posts = Post.includes(:categories, :user).all
+    @posts = Post.includes(:categories, :user).page params[:pages]
+    # respond_to do |format|
+    #   format.html { render index }
+    # end
   end
 
   def new
