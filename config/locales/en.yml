@@ -33,3 +33,6 @@ en:
   hello: "Hello %{name}"
   post_list: "Post List"
   actions: Actions
+  views:
+    pagination:
+      truncate: "&hellip;"
