@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   before_action :validate_post_owner, only: %i[edit update destroy]
 
   def index
-    @posts = Post.includes(:categories, :user).page params[:pages]
+    @posts = Post.includes(:categories, :user).page(params[:page]).per(5)
     respond_to do |format|
       format.html
       format.csv {
