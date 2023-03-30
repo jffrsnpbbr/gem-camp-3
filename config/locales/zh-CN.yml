@@ -1,0 +1,5 @@
+zh-CN:
+  hello: "您好, %{name}"
+  post_list: 活動清單
+  actions: 動作
+  users: 用戶

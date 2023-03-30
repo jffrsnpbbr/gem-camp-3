@@ -1,0 +1,20 @@
+en:
+  models:
+    post:
+      one: Post
+      other: Posts
+    user:
+      one: User
+      other: Users
+    comment:
+      one: Comment
+      other: Comments
+  activerecord:
+    attributes:
+      post:
+        title: Title
+        content: Content
+        categories: Categories
+        comments: Comments
+      user:
+        email: Email
