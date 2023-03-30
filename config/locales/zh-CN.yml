@@ -3,3 +3,6 @@ zh-CN:
   post_list: 活動清單
   actions: 動作
   users: 用戶
+  views:
+    pagination:
+      truncate: "&hellip;"
