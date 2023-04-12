@@ -17,6 +17,10 @@
     <%= form.text_field :content %>
   </div>
   <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+  <div>
     <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
   </div>
   <%= form.submit %>
