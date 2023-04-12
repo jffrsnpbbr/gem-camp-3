@@ -6,6 +6,7 @@
       <td><%= Post.human_attribute_name(:content) %></td>
       <td><%= Post.human_attribute_name(:categories) %></td>
       <td><%= Post.human_attribute_name(:comments) %></td>
+      <td><%= Post.human_attribute_name(:image) %></td>
       <td><%= t("users") %></td>
       <td><%= t("actions") %></td>
     </tr>
@@ -18,6 +19,7 @@
       <td><%= post.categories.pluck(:name).join(',') %></td>
       <td><%= post.comments_count || 0%></td>
       <td><%= post.user&.email %></td>
+      <td><%= image_tag post.image.url if post.image.present? %></td>
       <td>
         <%= link_to 'Show', post_path(post), class: "btn btn-primary" %>
         <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && post.user == current_user %>
