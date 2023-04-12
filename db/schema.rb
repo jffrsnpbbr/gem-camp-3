@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_12_071612) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_12_085846) do
+  create_table "address_provinces", charset: "utf8mb4", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.bigint "regions_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["regions_id"], name: "index_address_provinces_on_regions_id"
+  end
+
   create_table "address_regions", charset: "utf8mb4", force: :cascade do |t|
     t.string "code"
     t.string "name"
