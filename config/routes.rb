@@ -5,13 +5,21 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :regions, only: [:index, :show], defaults: { format: :json } do
         resources :provinces, only: [:index, :show], defaults: { format: :json } do
-          resources :cities, only: [:index, :show], defaults: { format: :json }
+          resources :cities, only: [:index, :show], defaults: { format: :json } do 
+            resources :barangays, only: [:index, :show], defaults: { format: :json }
+          end
         end
       end
+
       resources :provinces, only: [:index, :show], defaults: { format: :json } do
         resources :cities, only: [:index, :show], defaults: { format: :json }
       end
-      resources :cities, only: [:index, :show], defaults: { format: :json }
+
+      resources :cities, only: [:index, :show], defaults: { format: :json } do
+        resources :barangays, only: [:index, :show], defaults: { format: :json }
+      end
+
+      resources :barangays, only: [:index, :show], defaults: { format: :json }
     end
   end
 
