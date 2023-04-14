@@ -1,3 +1,7 @@
 class Address::Province < ApplicationRecord
-  belongs_to :regions
+  validates :name, presence: true
+  validates :code, uniqueness: true
+
+  belongs_to :region
+  has_many :cities
 end
