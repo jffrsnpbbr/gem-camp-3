@@ -74,3 +74,5 @@ gem "devise", "~> 4.9"
 gem "kaminari", "~> 1.2"
 gem 'carrierwave'
 gem "rest-client", "~> 2.1"
+
+gem "sidekiq", "~> 7.0"
